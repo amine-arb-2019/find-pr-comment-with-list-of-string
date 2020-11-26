@@ -1,0 +1,20 @@
+name: 'find-pr-comment-with-list-of-string'
+author: 'amine-arb-2019'
+inputs:
+  github-token:
+    description: 'The GitHub token'
+    required: true
+  string-list:
+    description: 'List of string to be checked in comment body'
+    required: true
+  pull-request-number:
+    description: 'The Pull Request number'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github-token }}
+    - ${{ inputs.string-list }}
+    - ${{ inputs.pull-request-number }}
+   
