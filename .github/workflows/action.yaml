@@ -17,6 +17,5 @@ jobs:
         uses: ./
         id: check-pr-comments
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
           string-list: '@graalvmbot', 'oracle-ca_us@oracle.com'
           pull-request-number: '${{ github.event.pull_request.number }}'     
