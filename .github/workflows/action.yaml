@@ -1,0 +1,22 @@
+name: Pull Request Comment Trigger
+on:
+  pull_request:
+    types: [opened]
+  pull_request_target   :
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  check_pr_comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check PR Labels
+        uses: ./
+        id: check-pr-comments
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          valid-string: '@graalvmbot', 'oracle-ca_us@oracle.com'
+          pull-request-number: '${{ github.event.pull_request.number }}'     
