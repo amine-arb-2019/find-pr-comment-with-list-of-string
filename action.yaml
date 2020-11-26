@@ -8,8 +8,8 @@ inputs:
     description: 'The Pull Request number'
     required: false
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'node12'
+  main: 'dist/index.js'
   args:
     - ${{ inputs.string-list }}
     - ${{ inputs.pull-request-number }}
