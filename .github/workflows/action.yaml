@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Check PR Labels
+      - name: Check PR comments
         uses: ./
         id: check-pr-comments
         with:
